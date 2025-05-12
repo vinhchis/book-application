@@ -5,6 +5,8 @@ import vinhchis.connection.ConnectionFactory;
 import vinhchis.connection.ConnectionFactoryImpl;
 import vinhchis.context.DatabaseContext;
 import vinhchis.context.DatabaseContextImpl;
+import vinhchis.factory.EntityFactory;
+import vinhchis.factory.EntityFactoryImpl;
 
 public class BookApplication {
     @Getter // generate a getter "getConnectionFactory()"
@@ -13,10 +15,14 @@ public class BookApplication {
     @Getter
     private final DatabaseContext databaseContext;
 
+    @Getter
+    private final EntityFactory entityFactory;
+
     private static final BookApplication INSTANCE = new BookApplication();
     private BookApplication() {
         connectionFactory = new ConnectionFactoryImpl();
         databaseContext = new DatabaseContextImpl();
+        entityFactory = new EntityFactoryImpl();
     }
 
     public static BookApplication getInstance() {
