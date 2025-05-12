@@ -1,5 +1,8 @@
 package vinhchis;
 
+import vinhchis.builder.AuthorBuilder;
+import vinhchis.builder.BookBuilder;
+import vinhchis.builder.CategoryBuilder;
 import vinhchis.context.DatabaseContext;
 import vinhchis.entities.Author;
 import vinhchis.entities.Book;
@@ -20,15 +23,25 @@ public class BookApplicationStartup {
         final BookRepository bookRepository = databaseContext.newRepository(Book.class);
 
 
-        final Author author = entityFactory.newEntity(Author.class, "Chis");
+//        final Author author = entityFactory.newEntity(Author.class, "Chis");
+        final Author author = entityFactory
+                .newEntityBuilder(AuthorBuilder.class)
+                .name("Peter")
+                .build();
+
         authorRepository.save(author);
 
-        final Category category = entityFactory.newEntity(Category.class, "Programming");
+        final Category category = entityFactory
+                .newEntityBuilder(CategoryBuilder.class)
+                .name("OOP").build();
         categoryRepository.save(category);
 
-        final Book book = entityFactory.newEntity(Book.class, "Java");
-        book.setAuthorId(author.getId());
-        book.setCategoryId(category.getId());
+        final Book book = entityFactory
+                .newEntityBuilder(BookBuilder.class)
+                .name("Java OOP")
+                .authorId(author.getId())
+                .categoryId(category.getId())
+                .build();
         bookRepository.save(book);
 
     }

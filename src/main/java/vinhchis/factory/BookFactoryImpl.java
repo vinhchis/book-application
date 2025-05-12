@@ -1,5 +1,6 @@
 package vinhchis.factory;
 
+import vinhchis.builder.BookBuilder;
 import vinhchis.entities.Book;
 
 public class BookFactoryImpl implements BookFactory{
@@ -8,5 +9,10 @@ public class BookFactoryImpl implements BookFactory{
         final Book book = new Book();
         book.setName(name);
         return book;
+    }
+
+    @Override
+    public BookBuilder newBookBuilder() {
+        return new BookBuilder();
     }
 }
