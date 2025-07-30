@@ -1,6 +1,6 @@
 package vinhchis.entities;
 
-public class Category {
+public class Category implements Cloneable {
     private long id;
     private String name;
 
@@ -18,5 +18,12 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public Category clone() {
+        final Category clone = new Category();
+        clone.name = this.name;
+        return clone;
     }
 }

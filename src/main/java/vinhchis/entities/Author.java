@@ -1,6 +1,6 @@
 package vinhchis.entities;
 
-public class Author {
+public class Author implements Cloneable {
     private long id;
 
     public String getName() {
@@ -20,4 +20,11 @@ public class Author {
     }
 
     private String name;
+
+    @Override
+    public Author clone(){
+        final Author clone = new Author();
+        clone.name = name;
+        return clone;
+    }
 }

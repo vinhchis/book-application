@@ -41,6 +41,9 @@ public class EntityFactoryImpl implements  EntityFactory {
     public <E, B extends Builder<E>> B newEntityBuilder(Class<B> builderType) {
         return (B) entityBuilderSuppliers.get(builderType).get();
     }
-
-
 }
+
+/*
+* Supplier<T> - function interface
+* get() - dùng phương thức không tham số, trả về một đối tượng
+* */
