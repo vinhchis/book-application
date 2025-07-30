@@ -26,19 +26,19 @@ public class BookApplicationStartup {
 //        final Author author = entityFactory.newEntity(Author.class, "Chis");
         final Author author = entityFactory
                 .newEntityBuilder(AuthorBuilder.class)
-                .name("Peter")
+                .name("Chi")
                 .build();
 
         authorRepository.save(author);
 
         final Category category = entityFactory
                 .newEntityBuilder(CategoryBuilder.class)
-                .name("OOP").build();
+                .name("C#").build();
         categoryRepository.save(category);
 
         final Book book = entityFactory
                 .newEntityBuilder(BookBuilder.class)
-                .name("Java OOP")
+                .name("Basic about DOTNET")
                 .authorId(author.getId())
                 .categoryId(category.getId())
                 .build();
