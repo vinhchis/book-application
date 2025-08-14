@@ -1,7 +1,7 @@
 package vinhchis.factory;
 
 import vinhchis.builder.BookBuilder;
-import vinhchis.entities.Book;
+import vinhchis.entity.Book;
 
 public interface BookFactory {
     Book newBook(String name);

@@ -1,7 +1,7 @@
 package vinhchis.factory;
 
 import vinhchis.builder.AuthorBuilder;
-import vinhchis.entities.Author;
+import vinhchis.entity.Author;
 
 public interface AuthorFactory {
     Author newAuthor(String name);

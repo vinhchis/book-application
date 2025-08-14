@@ -5,9 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import vinhchis.BookApplication;
-import vinhchis.connection.ConnectionFactory;
 import vinhchis.connection.ConnectionPool;
-import vinhchis.entities.Book;
+import vinhchis.entity.Book;
 
 public class BookRepositoryImpl implements BookRepository {
 //private final ConnectionFactory connectionFactory = BookApplication.getInstance().getConnectionFactory();

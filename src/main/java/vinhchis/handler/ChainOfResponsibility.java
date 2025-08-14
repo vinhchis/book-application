@@ -5,33 +5,33 @@ import com.tvd12.ezyhttp.core.response.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChainOfReposibility {
+public class ChainOfResponsibility {
     private final List<Handler> handlers = new ArrayList<>();
 
     private static final GlobalExceptionHandler GLOBAL_EXCEPTION_HANDLER = new GlobalExceptionHandler();
 
-    public <T, R> ChainOfReposibility addHandler(Handler<T,R> handler) {
+    public <T, R> ChainOfResponsibility addHandler(Handler<T,R> handler) {
         handlers.add(handler);
         return this;
     }
 
 
-    public ChainOfReposibility addFirstVoidHandler(FirstVoidHandler handler) {
+    public ChainOfResponsibility addFirstVoidHandler(FirstVoidHandler handler) {
         handlers.add(handler);
         return this;
     }
 
-    public <T> ChainOfReposibility addVoidHandler(VoidHandler<T> handler) {
+    public <T> ChainOfResponsibility addVoidHandler(VoidHandler<T> handler) {
         handlers.add(handler);
         return this;
     }
 
-    public <R> ChainOfReposibility addFirstHandler(FirstHandler<R> handler) {
+    public <R> ChainOfResponsibility addFirstHandler(FirstHandler<R> handler) {
         handlers.add(handler);
         return this;
     }
 
-    public ResponseEntity handle(){
+    public ResponseEntity handle() throws Exception {
         try {
             Object result = null;
             for (Handler handler : handlers) {

@@ -1,4 +1,4 @@
-package vinhchis.dto.request;
+package vinhchis.request;
 
 import lombok.Getter;
 import lombok.Setter;

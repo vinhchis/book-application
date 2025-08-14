@@ -1,4 +1,4 @@
-package vinhchis.dto.response;
+package vinhchis.response;
 
 import lombok.*;
 

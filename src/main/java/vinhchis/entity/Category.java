@@ -1,4 +1,4 @@
-package vinhchis.entities;
+package vinhchis.entity;
 
 public class Category implements Cloneable {
     private long id;

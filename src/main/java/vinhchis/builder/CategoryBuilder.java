@@ -1,7 +1,6 @@
 package vinhchis.builder;
 
-import vinhchis.entities.Author;
-import vinhchis.entities.Category;
+import vinhchis.entity.Category;
 
 public class CategoryBuilder implements Builder<Category> {
     private long id;

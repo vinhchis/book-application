@@ -4,9 +4,9 @@ import vinhchis.builder.AuthorBuilder;
 import vinhchis.builder.BookBuilder;
 import vinhchis.builder.Builder;
 import vinhchis.builder.CategoryBuilder;
-import vinhchis.entities.Author;
-import vinhchis.entities.Book;
-import vinhchis.entities.Category;
+import vinhchis.entity.Author;
+import vinhchis.entity.Book;
+import vinhchis.entity.Category;
 
 import java.util.HashMap;
 import java.util.Map;

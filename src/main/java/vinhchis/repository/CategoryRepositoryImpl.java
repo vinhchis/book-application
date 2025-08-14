@@ -5,9 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import vinhchis.BookApplication;
-import vinhchis.connection.ConnectionFactory;
 import vinhchis.connection.ConnectionPool;
-import vinhchis.entities.Category;
+import vinhchis.entity.Category;
 
 public class CategoryRepositoryImpl implements CategoryRepository {
     @Override

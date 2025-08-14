@@ -1,6 +1,7 @@
 package vinhchis.connection;
 
 import vinhchis.BookApplication;
+        // đạt max - chờ lấy ra từ
 
 import java.sql.Connection;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -31,10 +32,11 @@ public class ConnectionPool {
 }
 
 /*
+* Queue - FIFO
 * LinkedBlockingDeque<T> - buộc luồng gọi phải chờ cho đến khi nào một connection trong hàng đợi
-*  - take() : lấy ra từ Queue (take first)
-*  - offer() : trả về Queue (add)
+*  - take(deQueue) : lấy ra từ Queue (take first)
+*  - offer(enQueue) : trả về Queue (add)
 *
-* numberOfCreatedConnections : số lượng connection đã được tạo ra, không giảm vì trả về pool để dùng lại mà thôi
+* numberOfCreatedConnections : số lượng connection đã được tạo ra
 *
 * */

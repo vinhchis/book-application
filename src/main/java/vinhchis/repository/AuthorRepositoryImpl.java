@@ -1,9 +1,8 @@
 package vinhchis.repository;
 
 import vinhchis.BookApplication;
-import vinhchis.connection.ConnectionFactory;
 import vinhchis.connection.ConnectionPool;
-import vinhchis.entities.Author;
+import vinhchis.entity.Author;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

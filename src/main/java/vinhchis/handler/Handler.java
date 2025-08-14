@@ -1,4 +1,5 @@
 package vinhchis.handler;
 
-public interface Handler {
+public interface Handler<T, R> {
+    R handle(T input) throws Exception;
 }

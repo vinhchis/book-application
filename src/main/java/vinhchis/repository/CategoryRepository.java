@@ -1,6 +1,6 @@
 package vinhchis.repository;
 
-import vinhchis.entities.Category;
+import vinhchis.entity.Category;
 
 public interface CategoryRepository extends Repository<Category> {
 }

@@ -1,7 +1,6 @@
 package vinhchis.builder;
 
-import vinhchis.builder.Builder;
-import vinhchis.entities.Book;
+import vinhchis.entity.Book;
 
 public class BookBuilder implements Builder<Book> {
     private long id;

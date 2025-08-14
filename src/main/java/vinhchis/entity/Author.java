@@ -1,4 +1,4 @@
-package vinhchis.entities;
+package vinhchis.entity;
 
 public class Author implements Cloneable {
     private long id;

@@ -1,8 +1,8 @@
 package vinhchis.context;
 
-import vinhchis.entities.Author;
-import vinhchis.entities.Book;
-import vinhchis.entities.Category;
+import vinhchis.entity.Author;
+import vinhchis.entity.Book;
+import vinhchis.entity.Category;
 import vinhchis.repository.AuthorRepositoryImpl;
 import vinhchis.repository.BookRepositoryImpl;
 import vinhchis.repository.CategoryRepositoryImpl;

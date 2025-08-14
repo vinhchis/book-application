@@ -1,7 +1,7 @@
 package vinhchis.factory;
 
 import vinhchis.builder.CategoryBuilder;
-import vinhchis.entities.Category;
+import vinhchis.entity.Category;
 
 public class CategoryFactoryImpl implements CategoryFactory{
 

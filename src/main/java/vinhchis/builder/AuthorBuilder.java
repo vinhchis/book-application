@@ -1,6 +1,6 @@
 package vinhchis.builder;
 
-import vinhchis.entities.Author;
+import vinhchis.entity.Author;
 
 public class AuthorBuilder implements Builder<Author> {
     private long id;
