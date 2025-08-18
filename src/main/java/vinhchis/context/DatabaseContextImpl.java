@@ -26,5 +26,5 @@ public class DatabaseContextImpl implements DatabaseContext {
 
         throw new IllegalArgumentException("There is no repository for " + entityType.getName());
     }
-    
+
 }

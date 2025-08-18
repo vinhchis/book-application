@@ -1,3 +1,8 @@
 # Book Application With Design Patterns
 
---add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED
+## config
+- `--add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED`
+- `EzyHttp`, `lombok`,
+##
+
+- JPA ?

@@ -10,10 +10,14 @@ import vinhchis.builder.BookBuilder;
 import vinhchis.context.DatabaseContext;
 import vinhchis.request.AddBookRequest;
 import vinhchis.response.AddBookResponse;
+import vinhchis.entity.Author;
 import vinhchis.entity.Book;
+import vinhchis.entity.Category;
 import vinhchis.factory.EntityFactory;
 import vinhchis.handler.ChainOfResponsibility;
+import vinhchis.repository.AuthorRepository;
 import vinhchis.repository.BookRepository;
+import vinhchis.repository.CategoryRepository;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,11 +31,14 @@ public class ApiBookController {
     final EntityFactory entityFactory = application.getEntityFactory();
 
     final BookRepository bookRepository = databaseContext.newRepository(Book.class);
+    final CategoryRepository categoryRepository = databaseContext.newRepository(Category.class);
+    final AuthorRepository authorRepository = databaseContext.newRepository(Author.class);
+
 
     @DoPost("/books/add")
     public ResponseEntity addBook(@RequestBody AddBookRequest request) throws Exception {
         return new ChainOfResponsibility()
-                .addFirstVoidHandler(()->{
+                .addPreProcessor(()->{
                     final Map<String, String> errors = new HashMap<>();
                     if (isBlank(request.getBookName())) {
                         errors.put("bookName", "required");
@@ -39,17 +46,20 @@ public class ApiBookController {
 
                     if(request.getCategoryId() <= 0){
                         errors.put("categoryId", "required");
+                    }else{
+                        // check Category isExisted
                     }
 
                     if(request.getAuthorId() <= 0){
                         errors.put("authorId", "required");
+                        // check Author isExisted
                     }
 
                     if (!errors.isEmpty()) {
                         throw new HttpBadRequestException(errors);
                     }
                 })
-                .addFirstHandler(()->{
+                .addDataCreator(()->{
                     Book book = entityFactory.newEntityBuilder(BookBuilder.class)
                             .name(request.getBookName())
                             .categoryId(request.getCategoryId())

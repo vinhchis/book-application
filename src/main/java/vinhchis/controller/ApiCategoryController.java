@@ -31,7 +31,7 @@ public class ApiCategoryController {
     @DoPost("/categories/add")
     public ResponseEntity addCategory(@RequestBody AddCategoryRequest request) throws Exception {
         return new ChainOfResponsibility()
-                .addFirstVoidHandler(() -> {
+                .addPreProcessor(() -> {
                     final Map<String, String> errors = new HashMap<>();
                     if (isBlank(request.getCategoryName())) {
                         errors.put("categoryName", "required");
@@ -42,7 +42,7 @@ public class ApiCategoryController {
                         throw new HttpBadRequestException(errors);
                     }
                 })
-                .addFirstHandler(() -> {
+                .addDataCreator(() -> {
                     final Category category = entityFactory.newEntityBuilder(CategoryBuilder.class).name(request.getCategoryName()).build();
                     categoryRepository.save(category);
                     return new AddCategoryResponse(category.getId());

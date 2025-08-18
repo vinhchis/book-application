@@ -20,7 +20,6 @@ import java.util.Map;
 
 import static com.tvd12.ezyfox.io.EzyStrings.isBlank;
 
-
 @Controller("/api/v1")
 public class ApiAuthorController {
     final BookApplication application = BookApplication.getInstance();
@@ -32,7 +31,7 @@ public class ApiAuthorController {
     @DoPost("/authors/add")
     public ResponseEntity addAuthor(@RequestBody AddAuthorRequest request) throws Exception {
         return new ChainOfResponsibility()
-                .addFirstVoidHandler(() -> {
+                .addPreProcessor(() -> {
                     final Map<String, String> errors = new HashMap<>();
                     if (isBlank(request.getAuthorName())) {
                         errors.put("authorName", "required");
@@ -42,13 +41,13 @@ public class ApiAuthorController {
                         throw new HttpBadRequestException(errors);
                     }
                 })
-                .addFirstHandler(() -> {
-                    final Author author = entityFactory.newEntityBuilder(AuthorBuilder.class).name(request.getAuthorName()).build();
+                .addDataCreator(() -> {
+                    final Author author = entityFactory.newEntityBuilder(AuthorBuilder.class)
+                            .name(request.getAuthorName()).build();
                     authorRepository.save(author);
                     return new AddAuthorResponse(author.getId());
                 })
                 .handle();
     }
-
 
 }

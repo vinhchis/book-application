@@ -10,27 +10,33 @@ public class ChainOfResponsibility {
 
     private static final GlobalExceptionHandler GLOBAL_EXCEPTION_HANDLER = new GlobalExceptionHandler();
 
-    public <T, R> ChainOfResponsibility addHandler(Handler<T,R> handler) {
+    // 1. adding (4 type)
+    // Handler<T, R> - logic(A->B ->C)
+    // FirstVoidHandler<Void, Void> : check token,...
+    // VoidHandler<T, Void> : logger
+    // FirstHandler<Void, R> : parse to DTO,..
+
+    public <T, R> ChainOfResponsibility addLogicHandler(Handler<T,R> handler) {
         handlers.add(handler);
         return this;
     }
 
-
-    public ChainOfResponsibility addFirstVoidHandler(FirstVoidHandler handler) {
+    public ChainOfResponsibility addPreProcessor(FirstVoidHandler handler) {
         handlers.add(handler);
         return this;
     }
 
-    public <T> ChainOfResponsibility addVoidHandler(VoidHandler<T> handler) {
+    public <T> ChainOfResponsibility addPostProcessor(VoidHandler<T> handler) {
         handlers.add(handler);
         return this;
     }
 
-    public <R> ChainOfResponsibility addFirstHandler(FirstHandler<R> handler) {
+    public <R> ChainOfResponsibility addDataCreator(FirstHandler<R> handler) {
         handlers.add(handler);
         return this;
     }
 
+    // 2. handing
     public ResponseEntity handle() throws Exception {
         try {
             Object result = null;
